@@ -1,5 +1,14 @@
 # Automatically add back-references to all your Bear notes
 
+Simply run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
+```
+
+**Beginer tip, how to run a bash command on OSX:** bring spotlight search in by hitting ``⌘ + space``, search for _**terminal**_ and validate you search with ``↵ enter``. A terminal will show up, copy paste the previous command in the terminal then hit ``↵ enter`` to run the [bash][bash] script.
+
+
 ## Why
 
 This idea come from this [question][reddit post] on reddit.
@@ -15,7 +24,7 @@ After you ran this script, for every such note B, you'll have a link to B within
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
 
-## How 
+## How
 
 Here is what the **bash script** does:
 
@@ -25,6 +34,7 @@ Here is what the **bash script** does:
   * find all outgoing links from existing notes
   * add incoming links to existing notes.
 
+[bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
 [Homebrew]: https://brew.sh/
 [Python]: https://www.python.org/
