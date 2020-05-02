@@ -12,7 +12,14 @@ if ! command -v python 2>&1 >/dev/null; then
     brew install python
 fi
 
-git clone git@github.com:cglacet/bear.git
-cd bear
-python insert_in_links.py
-# rm -rf bear # Looks dangerous, TODO: find a better way 
+TMP_DIR=$(mktemp -d)
+
+echo "Retreiving source from Github (https://github.com/cglacet)."
+git clone -q git@github.com:cglacet/bear.git $TMP_DIR
+if [ $? -eq 0 ]; then 
+    echo "Running python script: "
+    python ${TMP_DIR}/insert_in_links.py | sed 's/^/    /'
+else
+    echo "Failed to retreive code from Github"
+fi
+rm -rf $TMP_DIR
