@@ -6,10 +6,9 @@
 
 **In a terminal** — :warning: Make sure to backup your notes before trying this
 
-```sh
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
----
 
 > **Beginer tip**: run a bash command on OSX. 
 > Bring spotlight search in by hitting ``⌘ + space``, 
