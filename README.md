@@ -6,22 +6,23 @@
 
 **In a terminal** — :warning: Make sure to backup your notes before trying this
 
-```bash
+```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
+---
 
-> **Beginer tip, how to run a bash command on OSX:** 
-> bring spotlight search in by hitting ``⌘ + space``, 
-> search for _**terminal**_ 
+> **Beginer tip**: run a bash command on OSX. 
+> Bring spotlight search in by hitting ``⌘ + space``, 
+> search for ``terminal`` 
 > and validate you search with ``↵ enter``. 
-> A terminal will show up, 
+> A terminal window shows up, 
 > copy paste the previous command in the terminal 
 > then hit ``↵ enter`` to run the [bash][bash] script.
 
 
 ## Why
 
-This idea come from this [question][reddit post] on reddit: 
+The suggestion comes from this [question][reddit post] on reddit: 
 
 > There has been interest in this feature already with previous posts:
 >
