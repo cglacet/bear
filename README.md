@@ -4,7 +4,7 @@
 
 ## Run 
 
-**In a terminal** (:warning: Make sure to backup your notes before trying this):
+**In a terminal** — :warning: Make sure to backup your notes before trying this)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
