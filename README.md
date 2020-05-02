@@ -39,9 +39,11 @@ You can modify three things:
 * A prefix to each link (`* `)
 
 Each of which can respectively be modified with the following environment variables: 
-`BEAR_IN_LINKS_SECTION`, 
-`BEAR_IN_LINKS_INTRO_TEXT`, 
-`BEAR_IN_LINK_PREFIX`. 
+
+* `BEAR_IN_LINKS_SECTION`, 
+* `BEAR_IN_LINKS_INTRO_TEXT`, 
+* `BEAR_IN_LINK_PREFIX`. 
+
 For example if we need to modify the introduction text we just need to run: 
 
 ```bash
