@@ -32,18 +32,6 @@ Non-referenced incoming links:
 * [Title of another note](link-to-another-node)
 ```
 
-You can modify three things: 
-
-* The separator (`---`)
-* The introduction text (`Non-referenced incoming links`) 
-* A prefix to each link (`* `)
-
-Each of which can respectively be modified with the following environment variables: 
-
-* `BEAR_IN_LINKS_SECTION`, 
-* `BEAR_IN_LINKS_INTRO_TEXT`, 
-* `BEAR_IN_LINK_PREFIX`. 
-
 For example if we need to modify the introduction text we just need to run: 
 
 ```bash
@@ -61,9 +49,19 @@ Liens entrants vers cette note :
 * [Title of another note](link-to-another-node)
 ```
 
-> **TODO** For now this is the part that doesn't work as I would like to, I have no smart 
-> way of telling if the back-references section has already been added to a document and 
-> I use `BEAR_IN_LINKS_INTRO_TEXT` text to detect whether it's the case or not. 
+### Details on customization 
+
+You can modify three things: 
+
+* The separator (`---`)
+* The introduction text (`Non-referenced incoming links`) 
+* A prefix to each link (`* `)
+
+Each of which can respectively be modified with the following environment variables: 
+
+* `BEAR_IN_LINKS_SECTION`, 
+* `BEAR_IN_LINKS_INTRO_TEXT`, 
+* `BEAR_IN_LINK_PREFIX`. 
 
 ## Why
 
