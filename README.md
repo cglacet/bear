@@ -2,7 +2,7 @@
 
 # Automatically add back-references to all your Bear notes
 
-![Animation showing what this script does](img/what.gif)
+<div style="text-align:center"><img src="img/what.gif"/></div>
 
 Simply run:
 
