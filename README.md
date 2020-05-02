@@ -1,23 +1,29 @@
-> :warning: **Make sure to backup your notes before trying this** just in case, you know computer scientist do make mistakes.
-
 # Automatically add back-references to all your Bear notes
 
 <div style="text-align:center"><img src="img/what.gif"/></div>
 
-Simply run:
+> :warning: Make sure to backup your notes before trying this
+
+**Simply run this in a terminal**:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
 
-**Beginer tip, how to run a bash command on OSX:** bring spotlight search in by hitting ``⌘ + space``, search for _**terminal**_ and validate you search with ``↵ enter``. A terminal will show up, copy paste the previous command in the terminal then hit ``↵ enter`` to run the [bash][bash] script.
+> **Beginer tip, how to run a bash command on OSX:** 
+> bring spotlight search in by hitting ``⌘ + space``, 
+> search for _**terminal**_ 
+> and validate you search with ``↵ enter``. 
+> A terminal will show up, 
+> copy paste the previous command in the terminal 
+> then hit ``↵ enter`` to run the [bash][bash] script.
 
 
-## Why
+### Why
 
 This idea come from this [question][reddit post] on reddit.
 
-## What 
+### What 
 
 In Bear note it's possible to have hyperlinks to other notes, for example, ``note A`` may have a link to some ``note B``.
 In that case it may be interesting for ``note B`` to display a reference back to all notes referencing it, here ``note A``.
@@ -25,7 +31,7 @@ In that case it may be interesting for ``note B`` to display a reference back to
 Running the following script will add all back references found in your notes.
 
 
-## How
+### How
 
 The script: 
 
