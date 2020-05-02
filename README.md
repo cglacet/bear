@@ -2,7 +2,7 @@
 
 # Automatically add back-references to all your Bear notes
 
-![Alt Text](img/what.gif)
+![Animation showing what this script does](img/what.gif)
 
 Simply run:
 
