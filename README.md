@@ -2,6 +2,8 @@
 
 # Automatically add back-references to all your Bear notes
 
+![Alt Text](img/what.gif)
+
 Simply run:
 
 ```bash
