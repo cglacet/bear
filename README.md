@@ -19,24 +19,27 @@ This idea come from this [question][reddit post] on reddit.
 
 ## What 
 
-In Bear note it's possible to have hyperlinks to other notes. 
-For now in Bear there are no option to display within a note A any other note B that contains a link to A.
+In Bear note it's possible to have hyperlinks to other notes, for example, ``note A`` may have a link to some ``note B``.
+In that case it may be interesting for ``note B`` to display a reference back to all notes referencing it, here ``note A``.
 
-After you ran this script, for every such note B, you'll have a link to B within note A:
+Running the following script will add all back references found in your notes.
+
+
+## How
+
+The script: 
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
 
-## How
-
-Here is what the **bash script** does:
+Here is what this script does:
 
 * install all shell dependencies ([Git][Git] and [Python][Python]) using [Homebrew][Homebrew], 
 * download the most recent sources from [here][sources],
-* run the python script that actually make all the work: 
-  * find all outgoing links from existing notes
-  * add incoming links to existing notes.
+* run the python script that actually make all the work, which is: 
+  * finding all outgoing links from existing notes
+  * adding back-references to existing notes.
 
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
