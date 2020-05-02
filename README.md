@@ -2,7 +2,7 @@
 
 <div style="text-align:center"><img src="img/what.gif"/></div>
 
-## Run 
+## Add all back-references
 
 **In a terminal** — :warning: Make sure to backup your notes before trying this
 
@@ -19,11 +19,25 @@
 > then hit ``↵ enter`` to run the [bash][bash] script.
 
 
-### Why
+## Why
 
-This idea come from this [question][reddit post] on reddit.
+This idea come from this [question][reddit post] on reddit: 
 
-### What 
+> There has been interest in this feature already with previous posts:
+>
+> https://www.reddit.com/r/bearapp/comments/9sbx6h/feature_request_reverse_links_a_note_shows_all/
+>
+> https://www.reddit.com/r/bearapp/comments/5hn8ts/feature_request_compile_all_note_mentionlinks_in/
+>
+> Is this feature on the near-future roadmap?
+>
+> I would absolutely love this for the [Zettelkasten tool](https://zettelkasten.de/) I want to build [based on Niklas Luhmann note scheme]. There are several dedicated software tools out there implementing ZTK specifically [nvALT, The Archive], but they all have downsides. For starters they are not cross platform macOS/iOS/iPadOS...]!
+>
+> Bear already supported the auto-link-complete feature with [[ notation...
+>
+> Having a note at the bottom of each note indication other notes that are linking to it would make Bear for me 'the perfect Zettelkasten' tool! And probably that of many others too. No problem if this would be subscription only feature... happy to pay for it, in fact it should be, otherwise the cross platform requirement would be moot ;)
+
+## What 
 
 In Bear note it's possible to have hyperlinks to other notes, for example, ``note A`` may have a link to some ``note B``.
 In that case it may be interesting for ``note B`` to display a reference back to all notes referencing it, here ``note A``.
@@ -31,7 +45,7 @@ In that case it may be interesting for ``note B`` to display a reference back to
 Running the following script will add all back references found in your notes.
 
 
-### How
+## How
 
 The script: 
 
