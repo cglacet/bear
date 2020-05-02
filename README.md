@@ -1,3 +1,5 @@
+> :warning: **Make sure to backup your notes before trying this** just in case, you know computer scientist do make mistakes.
+
 # Automatically add back-references to all your Bear notes
 
 Simply run:
