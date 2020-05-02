@@ -25,9 +25,9 @@ This idea come from this [question][reddit post] on reddit:
 
 > There has been interest in this feature already with previous posts:
 >
-> https://www.reddit.com/r/bearapp/comments/9sbx6h/feature_request_reverse_links_a_note_shows_all/
+> * https://www.reddit.com/r/bearapp/comments/9sbx6h/feature_request_reverse_links_a_note_shows_all/
 >
-> https://www.reddit.com/r/bearapp/comments/5hn8ts/feature_request_compile_all_note_mentionlinks_in/
+> * https://www.reddit.com/r/bearapp/comments/5hn8ts/feature_request_compile_all_note_mentionlinks_in/
 >
 > Is this feature on the near-future roadmap?
 >
