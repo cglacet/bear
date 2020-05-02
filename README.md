@@ -47,7 +47,8 @@ Each of which can respectively be modified with the following environment variab
 For example if we need to modify the introduction text we just need to run: 
 
 ```bash
-BEAR_IN_LINKS_INTRO_TEXT="Liens entrants vers cette note :" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
+BEAR_IN_LINKS_INTRO_TEXT="Liens entrants vers cette note :" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
 
 Which will render the following markdown: 
