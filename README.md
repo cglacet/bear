@@ -10,7 +10,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
 ```
 
-> **Beginer tip**: run a bash command on OSX. 
+> **How to run a bash command on OSX**: 
 > Bring spotlight search in by hitting ``⌘ + space``, 
 > search for ``terminal`` 
 > and validate you search with ``↵ enter``. 
