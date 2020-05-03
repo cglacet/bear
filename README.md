@@ -2,12 +2,15 @@
 
 <div style="text-align:center"><img src="img/what.gif"/></div>
 
+
 ## Add all back-references
+
+Quickly add a list of back-references to every notes (links to note that cite the current note).
 
 **In a terminal** — :warning: Make sure to backup your notes before trying this
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
 ```
 
 > **Beginer tip**: run a bash command on OSX. 
@@ -35,8 +38,8 @@ Non-referenced incoming links:
 For example if we need to modify the introduction text we just need to run: 
 
 ```bash
-BEAR_IN_LINKS_INTRO_TEXT="Liens entrants vers cette note :" \
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
+BEAR_BACKREFERENCES_INTRO_TEXT="Liens entrants vers cette note :" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
 ```
 
 Which will render the following markdown: 
@@ -59,9 +62,9 @@ You can modify three things:
 
 Each of which can respectively be modified with the following environment variables: 
 
-* `BEAR_IN_LINKS_SECTION`, 
-* `BEAR_IN_LINKS_INTRO_TEXT`, 
-* `BEAR_IN_LINK_PREFIX`. 
+* `BEAR_BACKREFERENCES_SECTION`, 
+* `BEAR_BACKREFERENCES_INTRO_TEXT`, 
+* `BEAR_BACKREFERENCE_PREFIX`. 
 
 ## Why
 
@@ -94,7 +97,7 @@ Running the following script will add all back references found in your notes.
 The script: 
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_in_links.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
 ```
 
 Here is what this script does:
@@ -104,6 +107,11 @@ Here is what this script does:
 * run the python script that actually make all the work, which is: 
   * finding all outgoing links from existing notes
   * adding back-references to existing notes.
+
+
+## Add back-references to sections
+
+
 
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
