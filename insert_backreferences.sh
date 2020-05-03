@@ -18,7 +18,7 @@ echo "Retreiving source from Github (https://github.com/cglacet)."
 git clone -q git@github.com:cglacet/bear.git $TMP_DIR
 if [ $? -eq 0 ]; then 
     echo "Running python script: "
-    python ${TMP_DIR}/insert_in_links.py | sed 's/^/    /'
+    python ${TMP_DIR}/insert_backreferences.py | sed 's/^/    /'
 else
     echo "Failed to retreive code from Github"
 fi
