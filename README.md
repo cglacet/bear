@@ -1,5 +1,9 @@
 # Automatically add back-references to all your Bear notes
 
+**Back references to notes**
+<div style="text-align:center"><img src="img/what.gif"/></div>
+
+**Back references to notes' sections**
 <div style="text-align:center"><img src="img/what_sections.gif"/></div>
 
 
