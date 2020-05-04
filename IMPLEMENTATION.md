@@ -4,12 +4,31 @@ There are several insteresting things in this problem, the main one for now I th
 
 ## Ignore back references when creating new back references
 
-It's not that simple to implement this feature as it require to make a distinction between:
+Adding back reference on existing links requires to be able to identify existing links. 
+In other words, this implementation requires to have a mechanism to make a distinction between:
 
 * *Normal links* existing links to notes you added yourself.
 * *Back reference links* automatically added by the script. 
 
-There are several constraints to implement this, but mainly we need back references links 
+If a back reference link is mistaken as a normal link, then it will be referenced as a back 
+reference (which as you can tell is recursive). If we let things go without caution, we could 
+create something like this: 
+
+**Initial state:**
+
+<div align="center"><img src="img/problem_1_step_1.png" width=400/></div>
+
+**1st run:**
+
+<div align="center"><img src="img/problem_1_step_2.png" width=400/></div>
+
+**2nd run:**
+
+<div align="center"><img src="img/problem_1_step_3.png" width=400/></div>
+
+That's not our objective here, at least it wasn't mine.
+
+There are many hacks to solve this, but lets add some constraints. We need back references links 
 to have any title the end-user may want. We also want links added by previous versions of
 this script be detected as back references.
 
