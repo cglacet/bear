@@ -133,17 +133,11 @@ BEAR_BACKREFERENCES_SECTION="" \
 
 | environment variable                   | target/effect                     | default value                       |
 |----------------------------------------|-----------------------------------|-------------------------------------|
-| **Back references options**                                                                                      |
-|                                                                                                                  |
-| `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
-|                                                                                                                  |
-| **Markdown options**                                                                                             |
 | `BEAR_BACKREFERENCES_SEPARATOR`        | separator                         | `---`                               |
 | `BEAR_BACKREFERENCES_INTRO_TEXT`       | introduction text                 | `This note is referenced in:`       |
 | `BEAR_BACKREFERENCE_PREFIX`            | prefix of each link               | `\n* `                              |
 | `BEAR_ROOT_SECTION_TEXT`               | root section representation       | `/`                                 |
-|                                                                                                                  |
-| **Other options**                                                                                                |
+| `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
 | `BEAR_TEST`                            | output text in terminal           | false                               |
 
 
