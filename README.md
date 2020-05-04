@@ -16,7 +16,7 @@ BEAR_BR_SECTIONS=false \
 <div align="center"><img src="img/what_sections.gif"/></div>
 
 
-## Tips — How to run commands in your terminal
+## Running commands in your terminal
 
 **How to run a bash command on OSX**: 
 Bring spotlight search in by hitting ``⌘ + space``, 
