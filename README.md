@@ -1,6 +1,6 @@
 # Automatically add back-references to all your Bear notes
 
-<div style="text-align:center"><img src="img/what_section.gif"/></div>
+<div style="text-align:center"><img src="img/what_sections.gif"/></div>
 
 
 ## Add all back-references
