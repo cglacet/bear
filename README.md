@@ -130,26 +130,17 @@ BEAR_BACKREFERENCES_SECTION="" \
 
 ## Complete documentation on environment variable options 
 
-### Back references options 
 
-| environment variable                   | effect                            | default value                       |
+| environment variable                   | target/effect                     | default value                       |
 |----------------------------------------|-----------------------------------|-------------------------------------|
-| `BEAR_BR_SECTIONS`                     | back reference sections           | true                                |
- 
-### Markdown options
-
-| environment variable                   | target                            | default value                       |
-|----------------------------------------|-----------------------------------|-------------------------------------|
+| **Back references options**            |                                   |                                     |
+| `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
+| **Markdown options**                   |                                   |                                     |
 | `BEAR_BACKREFERENCES_SEPARATOR`        | separator                         | `---`                               |
 | `BEAR_BACKREFERENCES_INTRO_TEXT`       | introduction text                 | `This note is referenced in:`       |
 | `BEAR_BACKREFERENCE_PREFIX`            | prefix of each link               | `\n* `                              |
 | `BEAR_ROOT_SECTION_TEXT`               | root section representation       | `/`                                 |
-
-
-### Other options 
-
-| environment variable                   | effect                            | default value                       |
-|----------------------------------------|-----------------------------------|-------------------------------------|
+| **Other options**                      |                                   |                                     |
 | `BEAR_TEST`                            | output text in terminal           | false                               |
 
 
