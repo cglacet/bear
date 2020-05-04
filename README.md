@@ -16,21 +16,20 @@ BEAR_BR_SECTIONS=false \
 <div style="text-align:center"><img src="img/what_sections.gif"/></div>
 
 
-## Add all back-references
+## Tips — How to run commands in your terminal
 
-Quickly add a list of back-references to every notes (links to note that cite the current note).
+**How to run a bash command on OSX**: 
+Bring spotlight search in by hitting ``⌘ + space``, 
+search for ``terminal`` 
+and validate you search with ``↵ enter``. 
 
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
-```
+<div align="center"><img src="img/spotlight.png" width=500/></div>
 
-> **How to run a bash command on OSX**: 
-> Bring spotlight search in by hitting ``⌘ + space``, 
-> search for ``terminal`` 
-> and validate you search with ``↵ enter``. 
-> A terminal window shows up, 
-> copy paste the previous command in the terminal 
-> then hit ``↵ enter`` to run the [bash][bash] script.
+A terminal window shows up, 
+copy paste any of the previous command `/bin/bash -c "..."` in the terminal 
+then hit ``↵ enter`` to run the [bash][bash] script.
+
+<div style="text-align:center"><img src="img/cmd.png" width=500/></div>
 
 
 ## Customize the output
