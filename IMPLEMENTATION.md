@@ -16,15 +16,15 @@ create something like this:
 
 **Initial state:**
 
-<div align="center"><img src="img/problem_1_step_1.png" width=400/></div>
+<div align="center"><img src="img/problem_1_step_1.png" width=800/></div>
 
 **1st run:**
 
-<div align="center"><img src="img/problem_1_step_2.png" width=400/></div>
+<div align="center"><img src="img/problem_1_step_2.png" width=800/></div>
 
 **2nd run:**
 
-<div align="center"><img src="img/problem_1_step_3.png" width=400/></div>
+<div align="center"><img src="img/problem_1_step_3.png" width=800/></div>
 
 That's not our objective here, at least it wasn't mine.
 
