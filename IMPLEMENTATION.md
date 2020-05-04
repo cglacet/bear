@@ -116,6 +116,6 @@ Imagine if `Note A` `Section 2` is renammed to `Section 3` and we run this repos
 
 <div align="center"><img src="img/multi_refs_2nd_run.png" width=350/></div>
 
-Since we only used section titles as references, from our program's point of view, there is a new section. This is most likely impossible to notice. On the other hand there is a simple solution to this, we can remove links that refer to a non-existing section. Of course we only want to remove automatically create links (ie., back-references only), which we can do once again using the previous function `is_a_backreference(link)`. This will be published to the repository very soon, for now this bug still exists.
+Since we only used section titles as references, from our program's point of view, there is a new section. This is most likely impossible to notice. On the other hand there is a simple solution to this, we can remove links that refer to a non-existing section. Of course we only want to remove automatically create links (ie., back-references only), which we can do once again using the previous function `is_a_backreference(link)`. The last problem with this is that Bear API doesn't provide a simple way to remove text. The only tool it provides is replacing the whole note content (which will turn out to be similar but requires us to do the work). This will be published to the repository very soon, for now this bug still exists.
 
 [open-note]: https://bear.app/faq/X-callback-url%20Scheme%20documentation/#open-note
