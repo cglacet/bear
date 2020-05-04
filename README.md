@@ -141,6 +141,12 @@ BEAR_BACKREFERENCES_SECTION="" \
 | `BEAR_TEST`                            | output text in terminal           | false                               |
 
 
+## If you have more questions
+
+If you are a developer, maybe you can read the [implementation notes](IMPLEMENTATION.md).
+Also, any comment is welcome, feel free to [open a new issue][new issue] (even for discussions).
+
+
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
 [Homebrew]: https://brew.sh/
@@ -148,3 +154,4 @@ BEAR_BACKREFERENCES_SECTION="" \
 [Git]: https://git-scm.com/
 [sources]: https://github.com/cglacet/bear
 [py script]: https://github.com/cglacet/bear/blob/master/insert_backreferences.py
+[new issue]: https://github.com/cglacet/bear/issues/new/choose

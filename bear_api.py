@@ -44,7 +44,7 @@ def note_link(text):
         except (KeyError, IndexError):
             header = None
 
-        yield HeaderLink(href_id=href_id, title=link_title, header=header, reference_link_title=title)
+        yield HeaderLink(href_id=href_id, title=link_title, header=header, open_note_title=title)
 
 
 def markdown_link(link):
@@ -58,7 +58,7 @@ def markdown_link(link):
     url = OPEN_NOTE_API_URL
     url += f"?id={link.href_id}"
     try:
-        url += f"&title={link.reference_link_title}"
+        url += f"&title={link.open_note_title}"
     except AttributeError:
         pass
     try:

@@ -52,7 +52,7 @@ def find_all_links(notes):
         out_links[note.uid] = list(note.outgoing_links)
         for out_link in out_links[note.uid]:
             if not is_a_backreference(out_link):
-                backref = Link(href_id=note.uid, title=note.title, reference_link_title=BACKREFMARKER)
+                backref = Link(href_id=note.uid, title=note.title, open_note_title=BACKREFMARKER)
                 backreferences[out_link.href_id].add(backref)
     return backreferences, out_links
 
@@ -64,7 +64,7 @@ def find_all_links_by_section(notes):
         out_links[note.uid] = list(note.outgoing_links)
         for header, out_link in note.sections_outgoing_links:
             if not is_a_backreference(out_link):
-                backref = HeaderLink(href_id=note.uid, title=note.title, header=header, reference_link_title=BACKREFMARKER)
+                backref = HeaderLink(href_id=note.uid, title=note.title, header=header, open_note_title=BACKREFMARKER)
                 backreferences[out_link.href_id].add(backref)
     return backreferences, out_links
 
@@ -97,7 +97,7 @@ def filter_out_self_links(backreferences, out_links):
 
 def is_a_backreference(link):
     try:
-        return link.reference_link_title == BACKREFMARKER
+        return link.open_note_title == BACKREFMARKER
     except AttributeError:
         return False
 
