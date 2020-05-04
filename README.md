@@ -128,19 +128,31 @@ BEAR_BACKREFERENCES_SECTION="" \
 * [Title of another note](link-to-another-node)
 ```
 
-### Details on customization 
+## Complete documentation on environment variable options 
 
-You can modify three things: 
+### Back references options 
 
-* The separator (`---`)
-* The introduction text (`Non-referenced incoming links`) 
-* A prefix to each link (`* `)
+| environment variable                   | effect                            | default value                       |
+|----------------------------------------|-----------------------------------|-------------------------------------|
+| `BEAR_BR_SECTIONS`                     | back reference sections           | true                                |
+ 
+### Markdown options
 
-Each of which can respectively be modified with the following environment variables: 
+You can modify the following environment variable:
 
-* `BEAR_BACKREFERENCES_SECTION`, 
-* `BEAR_BACKREFERENCES_INTRO_TEXT`, 
-* `BEAR_BACKREFERENCE_PREFIX`. 
+| environment variable                   | target                            | default value                       |
+|----------------------------------------|-----------------------------------|-------------------------------------|
+| `BEAR_BACKREFERENCES_SEPARATOR`        | separator                         | `---`                               |
+| `BEAR_BACKREFERENCES_INTRO_TEXT`       | introduction text                 | `This note is referenced in:`       |
+| `BEAR_BACKREFERENCE_PREFIX`            | prefix of each link               | `\n* `                              |
+| `BEAR_ROOT_SECTION_TEXT`               | root section representation       | `/`                                 |
+
+
+### Other options 
+
+| environment variable                   | effect                            | default value                       |
+|----------------------------------------|-----------------------------------|-------------------------------------|
+| `BEAR_TEST`                            | output text in terminal           | false                               |
 
 
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
