@@ -1,6 +1,6 @@
-nc='\\033[0m'
-red='\\033[0;31m'
-blue='\\033[0;34m'
+nc="\\033[0m"
+red="\\033[0;31m"
+blue="\\033[0;34m"
 
 
 if ! command -v git 2>&1 >/dev/null; then 
