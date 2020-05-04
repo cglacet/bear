@@ -7,13 +7,13 @@
 BEAR_BR_SECTIONS=false \
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
-<div style="text-align:center"><img src="img/what.gif"/></div>
+<div align="center"><img src="img/what.gif"/></div>
 
 **Back references to sections**
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
-<div style="text-align:center"><img src="img/what_sections.gif"/></div>
+<div align="center"><img src="img/what_sections.gif"/></div>
 
 
 ## Tips — How to run commands in your terminal
@@ -29,7 +29,7 @@ A terminal window shows up,
 copy paste any of the previous command `/bin/bash -c "..."` in the terminal 
 then hit ``↵ enter`` to run the [bash][bash] script.
 
-<div style="text-align:center"><img src="img/cmd.png" width=500/></div>
+<div align="center"><img src="img/cmd.png" width=500/></div>
 
 
 ## Customize the output
