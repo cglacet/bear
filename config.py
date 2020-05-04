@@ -12,7 +12,3 @@ INSERT_OPTIONS_DICT = {
     'open_note': 'no',
     'show_window': 'no',
 }
-
-# If it fails and you struggle finding the location of your , try to run:
-#   find ~ -iname database.sqlite | grep bear
-MANUALLY_SET_DB_LOCATION = ""

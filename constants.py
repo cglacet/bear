@@ -1,6 +1,6 @@
 import os
 import search_file
-from config import INSERT_OPTIONS_DICT, MANUALLY_SET_DB_LOCATION, TEST, USE_HEADER_LINKS
+from config import INSERT_OPTIONS_DICT, TEST, USE_HEADER_LINKS
 
 USE_HEADER_LINKS = os.getenv('BEAR_BR_SECTIONS', str(USE_HEADER_LINKS)).lower() == 'true'
 
@@ -14,6 +14,7 @@ BACKREFERENCES_INTRO_TEXT = DEFAULT_BACKREFERENCES_INTRO_TEXT
 BACKREFERENCE_PREFIX = '\n* '
 
 ROOT_SECTION_TEXT = "/"
+ROOT_SECTION_TEXT = os.getenv('BEAR_ROOT_SECTION_TEXT', ROOT_SECTION_TEXT)
 
 HOME = os.getenv('HOME', '')
 LIBRARY = os.path.join(HOME, 'Library')
@@ -24,10 +25,13 @@ INSERT_OPTIONS = '&'.join(f'{k}={v}' for k, v in INSERT_OPTIONS_DICT.items())
 BACKREFMARKER = "__backreference_link__"
 
 BEAR_DB = search_file.find_first(r'.*bear.*database\.sqlite$', LIBRARY)
-if not BEAR_DB and not MANUALLY_SET_DB_LOCATION:
+# Maybe use "find ~ -iname database.sqlite | grep bear"?
+BEAR_DB = os.getenv('BEAR_DB_LOCATION', BEAR_DB)
+
+if not BEAR_DB:
     print(
-        f"\n\n!!! ERROR: Couldn't locate Bear app database, please edit config.py"
-        f"file to set MANUALLY_SET_DB_LOCATION this manually !!!\n\n"
+        f"\n\nERROR: Couldn't locate Bear app database,"
+        f"please provide a valid 'BEAR_DB_LOCATION' (as environment variable).\n\n"
     )
     exit(1)
 
@@ -40,7 +44,7 @@ if not BACKREFERENCES_INTRO_TEXT:
 
 
 # For people that don't want to interact with python code
-BACKREFERENCES_SECTION = os.getenv('BEAR_BACKREFERENCES_SECTION', BACKREFERENCES_SECTION)
+BACKREFERENCES_SECTION = os.getenv('BEAR_BACKREFERENCES_SEPARATOR', BACKREFERENCES_SECTION)
 BACKREFERENCES_INTRO_TEXT = os.getenv('BEAR_BACKREFERENCES_INTRO_TEXT', BACKREFERENCES_INTRO_TEXT)
 BACKREFERENCE_PREFIX = os.getenv('BEAR_BACKREFERENCE_PREFIX', BACKREFERENCE_PREFIX)
 TEST = os.getenv('BEAR_TEST', str(TEST)).lower() == 'true'
