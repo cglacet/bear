@@ -1,6 +1,6 @@
 # Automatically add back-references to all your Bear notes
 
-**In a terminal** — :warning: Make sure to backup your notes before trying this
+:warning: Make sure to backup your notes before trying this
 
 **Back references to notes**
 ```bash
