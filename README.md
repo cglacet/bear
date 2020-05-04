@@ -1,12 +1,17 @@
 # Automatically add back-references to all your Bear notes
 
 **Back references to notes**
+```bash
+BEAR_BR_SECTIONS=false \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
 <div style="text-align:center"><img src="img/what.gif"/></div>
-`BEAR_BR_SECTIONS=false /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"`
 
 **Back references to sections**
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
 <div style="text-align:center"><img src="img/what_sections.gif"/></div>
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"`
 
 
 ## Add all back-references
