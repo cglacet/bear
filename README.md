@@ -1,6 +1,6 @@
 # Automatically add back-references to all your Bear notes
 
-<div style="text-align:center"><img src="img/what.gif"/></div>
+<div style="text-align:center"><img src="img/what_section.gif"/></div>
 
 
 ## Add all back-references
@@ -107,9 +107,6 @@ Here is what this script does:
 * run the python script that actually make all the work, which is: 
   * finding all outgoing links from existing notes
   * adding back-references to existing notes.
-
-
-## Add back-references to sections
 
 
 
