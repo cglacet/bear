@@ -45,7 +45,7 @@ Non-referenced incoming links:
 * [Title of another note](link-to-another-node)
 ```
 
-For example if we need to modify the introduction text we just need to run: 
+For example if we need to modify the introduction text you just need to run: 
 
 ```bash
 BEAR_BACKREFERENCES_INTRO_TEXT="Liens entrants vers cette note :" \
@@ -57,6 +57,22 @@ Which will render the following markdown:
 ```markdown
 ---
 Liens entrants vers cette note : 
+
+* [Title of the note](link-to-node)
+* [Title of another note](link-to-another-node)
+```
+
+If you need to have several options:
+
+```bash
+BEAR_BR_SECTIONS=false \
+BEAR_BACKREFERENCES_INTRO_TEXT="# References" \
+BEAR_BACKREFERENCES_SECTION="" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
+
+```markdown
+# References
 
 * [Title of the note](link-to-node)
 * [Title of another note](link-to-another-node)
