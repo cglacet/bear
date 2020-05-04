@@ -1,5 +1,7 @@
 # Automatically add back-references to all your Bear notes
 
+**In a terminal** — :warning: Make sure to backup your notes before trying this
+
 **Back references to notes**
 ```bash
 BEAR_BR_SECTIONS=false \
@@ -17,8 +19,6 @@ BEAR_BR_SECTIONS=false \
 ## Add all back-references
 
 Quickly add a list of back-references to every notes (links to note that cite the current note).
-
-**In a terminal** — :warning: Make sure to backup your notes before trying this
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
