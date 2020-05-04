@@ -31,6 +31,56 @@ then hit ``↵ enter`` to run the [bash][bash] script.
 
 <div align="center"><img src="img/cmd.png" width=700/></div>
 
+## Why
+
+The suggestion comes from this [question][reddit post] on reddit: 
+
+> There has been interest in this feature already with previous posts:
+>
+> * https://www.reddit.com/r/bearapp/comments/9sbx6h/feature_request_reverse_links_a_note_shows_all/
+>
+> * https://www.reddit.com/r/bearapp/comments/5hn8ts/feature_request_compile_all_note_mentionlinks_in/
+>
+> Is this feature on the near-future roadmap?
+>
+> I would absolutely love this for the [Zettelkasten tool](https://zettelkasten.de/) I want to build [based on Niklas Luhmann note scheme]. There are several dedicated software tools out there implementing ZTK specifically [nvALT, The Archive], but they all have downsides. For starters they are not cross platform macOS/iOS/iPadOS...]!
+>
+> Bear already supported the auto-link-complete feature with [[ notation...
+>
+> Having a note at the bottom of each note indication other notes that are linking to it would make Bear for me 'the perfect Zettelkasten' tool! And probably that of many others too. No problem if this would be subscription only feature... happy to pay for it, in fact it should be, otherwise the cross platform requirement would be moot ;)
+
+## How
+
+The script: 
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
+
+Here is what this script does:
+
+* install all shell dependencies ([Git][Git] and [Python][Python]) using [Homebrew][Homebrew], 
+* download the most recent sources from [here][sources],
+* run the python script that actually make all the work, which is: 
+  * finding all outgoing links from existing notes
+  * adding back-references to existing notes.
+
+
+## Use in test mode
+
+In test mode, nothing will happen to your notes. The script will only output what it would have 
+added to your notes directly in the terminal. To use the test mode, simply set `BEAR_TEST=true`
+before running the script: 
+
+```bash
+BEAR_TEST=true \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
+
+The result will look like that:
+
+<div align="center"><img src="img/test_mode.png" width=700/></div>
+
 
 ## Customize the output
 
@@ -91,49 +141,6 @@ Each of which can respectively be modified with the following environment variab
 * `BEAR_BACKREFERENCES_SECTION`, 
 * `BEAR_BACKREFERENCES_INTRO_TEXT`, 
 * `BEAR_BACKREFERENCE_PREFIX`. 
-
-## Why
-
-The suggestion comes from this [question][reddit post] on reddit: 
-
-> There has been interest in this feature already with previous posts:
->
-> * https://www.reddit.com/r/bearapp/comments/9sbx6h/feature_request_reverse_links_a_note_shows_all/
->
-> * https://www.reddit.com/r/bearapp/comments/5hn8ts/feature_request_compile_all_note_mentionlinks_in/
->
-> Is this feature on the near-future roadmap?
->
-> I would absolutely love this for the [Zettelkasten tool](https://zettelkasten.de/) I want to build [based on Niklas Luhmann note scheme]. There are several dedicated software tools out there implementing ZTK specifically [nvALT, The Archive], but they all have downsides. For starters they are not cross platform macOS/iOS/iPadOS...]!
->
-> Bear already supported the auto-link-complete feature with [[ notation...
->
-> Having a note at the bottom of each note indication other notes that are linking to it would make Bear for me 'the perfect Zettelkasten' tool! And probably that of many others too. No problem if this would be subscription only feature... happy to pay for it, in fact it should be, otherwise the cross platform requirement would be moot ;)
-
-## What 
-
-In Bear note it's possible to have hyperlinks to other notes, for example, ``note A`` may have a link to some ``note B``.
-In that case it may be interesting for ``note B`` to display a reference back to all notes referencing it, here ``note A``.
-
-Running the following script will add all back references found in your notes.
-
-
-## How
-
-The script: 
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
-```
-
-Here is what this script does:
-
-* install all shell dependencies ([Git][Git] and [Python][Python]) using [Homebrew][Homebrew], 
-* download the most recent sources from [here][sources],
-* run the python script that actually make all the work, which is: 
-  * finding all outgoing links from existing notes
-  * adding back-references to existing notes.
-
 
 
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
