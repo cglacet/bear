@@ -1,7 +1,9 @@
 import subprocess
 import sqlite3
-from urllib.parse import quote
-from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST, INSERT_OPTIONS
+import re
+from urllib.parse import urlparse, parse_qs, quote
+from links import HeaderLink
+from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST, INSERT_OPTIONS, ROOT_SECTION_TEXT
 
 
 def notes():
@@ -20,9 +22,31 @@ def append_text_to_note(note, text):
         return call(x_call_text)
 
 
+def note_link(text):
+    pattern = r'\[([^\]]*)\]\((bear:\/\/x-callback-url\/open-note[^\)]*)\)'
+    for link_title, link_url in re.findall(pattern, text):
+        parsed_url = urlparse(link_url)
+        try:
+            title = parse_qs(parsed_url.query)['title'][0]
+        except (KeyError, IndexError):
+            title = None
+
+        href_id = parse_qs(parsed_url.query)['id'][0]
+
+        try:
+            header = parse_qs(parsed_url.query)['header'][0]
+        except (KeyError, IndexError):
+            header = None
+
+        yield HeaderLink(href_id=href_id, title=link_title, header=header, reference_link_title=title)
+
+
 def markdown_link(link):
     try:
-        text = f"{link.title}/{link.header}"
+        if link.title == link.header:
+            text = f"{link.title}{ROOT_SECTION_TEXT}"
+        else:
+            text = f"{link.title}/{link.header}"
     except AttributeError:
         text = link.title
     url = OPEN_NOTE_API_URL

@@ -3,7 +3,7 @@ TEST = False
 
 # When set to True, USE_HEADER_LINKS will generate a backreference 
 # to each note/section pair that cite the current note.
-USE_HEADER_LINKS = False
+USE_HEADER_LINKS = True
 
 # Options that will be passed to the text insertion API:
 #   https://bear.app/faq/X-callback-url%20Scheme%20documentation/#add-text

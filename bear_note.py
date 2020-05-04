@@ -1,33 +1,22 @@
 import re
 import bear_api
-from urllib.parse import urlparse, parse_qs
-from constants import BACKREFERENCES_SECTION, BACKREFERENCES_INTRO_TEXT, BACKREFERENCE_PREFIX
-from links import HeaderLink
 
 
 class BearNote:
     def __init__(self, sql_row):
         self.content = sql_row
 
-    def markdown_link_list(self, links):
-        already_has_a_backreference_section = BACKREFERENCES_INTRO_TEXT in self.text
-        if already_has_a_backreference_section:
-            intro_markdown = ""
-        else:
-            intro_markdown = BACKREFERENCES_SECTION + BACKREFERENCES_INTRO_TEXT
-        return intro_markdown + '\n'.join(f"{BACKREFERENCE_PREFIX} {bear_api.markdown_link(l)}" for l in links) + '\n'
-
     def append_text(self, text):
         return bear_api.append_text_to_note(self, text)
 
     @property
     def outgoing_links(self):
-        yield from text_links(self.text)
+        yield from bear_api.note_link(self.text)
 
     @property
     def sections_outgoing_links(self):
         for title, content in self.sections:
-            for link in text_links(content):
+            for link in bear_api.note_link(content):
                 yield title, link
 
     @property
@@ -73,22 +62,3 @@ def match_section_title(text_line):
         return match[1]
     except (TypeError, IndexError):
         return None
-
-
-def text_links(text):
-    pattern = r'\[([^\]]*)\]\((bear:\/\/x-callback-url\/open-note[^\)]*)\)'
-    for link_title, link_url in re.findall(pattern, text):
-        parsed_url = urlparse(link_url)
-        try:
-            title = parse_qs(parsed_url.query)['title'][0]
-        except (KeyError, IndexError):
-            title = None
-
-        href_id = parse_qs(parsed_url.query)['id'][0]
-
-        try:
-            header = parse_qs(parsed_url.query)['header'][0]
-        except (KeyError, IndexError):
-            header = None
-
-        yield HeaderLink(href_id=href_id, title=link_title, header=header, reference_link_title=title)

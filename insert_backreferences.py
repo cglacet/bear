@@ -6,8 +6,9 @@ is passed. THis allows to add some meta-data in the title argument of open-note:
 import bear_api
 from collections import defaultdict
 from bear_note import BearNote
-from constants import USE_HEADER_LINKS, BACKREFMARKER
+from constants import USE_HEADER_LINKS, BACKREFMARKER, BACKREFERENCES_INTRO_TEXT, BACKREFERENCES_SECTION, BACKREFERENCE_PREFIX
 from links import Link, HeaderLink
+from ordered_set import OrderedSet
 
 
 def main():
@@ -18,19 +19,34 @@ def main():
     nb_links_inserted = 0
     for note in notes:
         try:
-            links = backreferences[note.uid]
-            if links:
-                text_to_append = note.markdown_link_list(links)
-                note.append_text(text_to_append)
-                nb_links_inserted += len(links)
+            nb_links_inserted += add_backreferences_to_note(note, backreferences, out_links)
         except KeyError:
             pass
 
     print(f"Inserted {nb_links_inserted} new links to your notes.")
 
 
+def add_backreferences_to_note(note, backreferences, out_links):
+    backrefs = backreferences[note.uid]
+    existing_links = out_links[note.uid]
+    if backrefs:
+        add_intro = not any(is_a_backreference(l) for l in existing_links)
+        text_to_append = markdown_link_list(note, backrefs, add_intro=add_intro)
+        note.append_text(text_to_append)
+        return len(backrefs)
+    return 0
+
+
+def markdown_link_list(note, links, add_intro=False):
+    if add_intro:
+        intro_markdown = BACKREFERENCES_SECTION + BACKREFERENCES_INTRO_TEXT
+    else:
+        intro_markdown = ""
+    return intro_markdown + ''.join(f"{BACKREFERENCE_PREFIX} {bear_api.markdown_link(l)}" for l in links) + '\n'
+
+
 def find_all_links(notes):
-    backreferences = defaultdict(set)
+    backreferences = defaultdict(OrderedSet)
     out_links = dict()
     for note in notes:
         out_links[note.uid] = list(note.outgoing_links)
@@ -42,7 +58,7 @@ def find_all_links(notes):
 
 
 def find_all_links_by_section(notes):
-    backreferences = defaultdict(set)
+    backreferences = defaultdict(OrderedSet)
     out_links = dict()
     for note in notes:
         out_links[note.uid] = list(note.outgoing_links)
@@ -84,6 +100,7 @@ def is_a_backreference(link):
         return link.reference_link_title == BACKREFMARKER
     except AttributeError:
         return False
+
 
 if __name__ == "__main__":
     main()
