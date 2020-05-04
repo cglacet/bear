@@ -23,7 +23,7 @@ identifier.
 
 **Observation 1** Internally, Bear only uses references to link to other notes: 
 
-<div align="center"><img src="img/link_to_note.png" width=100/></div>
+<div align="center"><img src="img/link_to_note.png" width=200/></div>
 
 
 This generate the following link:
