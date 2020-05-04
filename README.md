@@ -2,9 +2,11 @@
 
 **Back references to notes**
 <div style="text-align:center"><img src="img/what.gif"/></div>
+`BEAR_BR_SECTIONS=false /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"`
 
-**Back references to notes' sections**
+**Back references to sections**
 <div style="text-align:center"><img src="img/what_sections.gif"/></div>
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"`
 
 
 ## Add all back-references

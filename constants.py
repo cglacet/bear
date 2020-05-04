@@ -2,7 +2,7 @@ import os
 import search_file
 from config import INSERT_OPTIONS_DICT, MANUALLY_SET_DB_LOCATION, TEST, USE_HEADER_LINKS
 
-USE_HEADER_LINKS = os.getenv('BEAR_USE_HEADER_LINKS', str(USE_HEADER_LINKS)).lower() == 'true'
+USE_HEADER_LINKS = os.getenv('BEAR_BR_SECTIONS', str(USE_HEADER_LINKS)).lower() == 'true'
 
 WRITE_API_URL = "bear://x-callback-url/add-text"
 OPEN_NOTE_API_URL = "bear://x-callback-url/open-note"
