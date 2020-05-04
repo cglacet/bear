@@ -1,6 +1,8 @@
 # Remarks on the implementation 
 
-## The ID + title trick 
+There are several insteresting things in this problem, the main one for now I think is the following.
+
+## Ignore back references when creating new back references
 
 It's not that simple to implement this feature as it require to make a distinction between:
 
@@ -29,7 +31,7 @@ identifier.
 This generate the following link:
 
 ```markdown
-[Note A](bear://x-callback-url/open-note?id=63DF1EAC-448D-4F8A-A305-4FE1CBCED755-3568-000054FE87120CF9)
+[Note A](bear://x-callback-url/open-note?id=1)
 ```
 
 
@@ -40,8 +42,10 @@ references, like so:
 
 ```python 
 BACKREFMARKER = "__backreference_link__"
+
 # Every automatically created link will have this property stored in:
 backref = Link(href_id=note.uid, title=note.title, open_note_title=BACKREFMARKER)
+
 # Which we will then output (in markdown), like so:
 def markdown_link(link):
     api_url = "bear://x-callback-url/open-note?id={link.href_id}&title={link.open_note_title}"
@@ -51,10 +55,11 @@ def markdown_link(link):
 For example, this code produces links like: 
 
 ```markdown
-[Note A](bear://x-callback-url/open-note?id=63DF1EAC-448D-4F8A-A305-4FE1CBCED755-3568-000054FE87120CF9&title=__backreference_link__)
+[Note A](bear://x-callback-url/open-note?id=1&title=__backreference_link__)
 ```
 
-Using this it's easy to find out which links are back references (and this ignore them): 
+Using this it's easy to find out which links are back references 
+(and this exclude them from the existing links): 
 
 ```python
 def is_a_backreference(link):
@@ -63,7 +68,6 @@ def is_a_backreference(link):
     except AttributeError:
         return False
 ```
-
 
 
 [open-note]: https://bear.app/faq/X-callback-url%20Scheme%20documentation/#open-note
