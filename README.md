@@ -61,7 +61,7 @@ Here is what this script does:
 
 * install all shell dependencies ([Git][Git] and [Python][Python]) using [Homebrew][Homebrew], 
 * download the most recent sources from [here][sources],
-* run the python script that actually make all the work, which is: 
+* run the [python script][py script] that actually make all the work, which is: 
   * finding all outgoing links from existing notes
   * adding back-references to existing notes.
 
@@ -161,3 +161,4 @@ You can modify the following environment variable:
 [Python]: https://www.python.org/
 [Git]: https://git-scm.com/
 [sources]: https://github.com/cglacet/bear
+[py script]: https://github.com/cglacet/bear/blob/master/insert_backreferences.py
