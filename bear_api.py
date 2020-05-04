@@ -1,6 +1,7 @@
 import subprocess
 import sqlite3
 import re
+from textwrap import indent
 from urllib.parse import urlparse, parse_qs, quote
 from links import HeaderLink
 from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST, INSERT_OPTIONS, ROOT_SECTION_TEXT
@@ -17,7 +18,12 @@ def notes():
 def append_text_to_note(note, text):
     x_call_text = f"{WRITE_API_URL}?{INSERT_OPTIONS}&text={encode(text)}&id={note.uid}&new_line=no"
     if TEST:
-        print("CLick the following link to add some backreferences: \n\t", x_call_text)
+        print("")
+        print("The following would be added to your note: \n")
+        print('—'*40, end="\n\n")
+        print(text)
+        print("")
+        print('—'*40)
     else:
         return call(x_call_text)
 
