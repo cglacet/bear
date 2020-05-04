@@ -26,6 +26,8 @@ create something like this:
 
 <div align="center"><img src="img/problem_1_step_3.png" width=800/></div>
 
+After the 2nd run `Note A` have a back reference to `Note B` even though 
+`Note B` doesn't have any reference to `Note A`. 
 That's not our objective here, at least it wasn't mine.
 
 There are many hacks to solve this, but lets add some constraints. We need back references links 
