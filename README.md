@@ -29,7 +29,7 @@ A terminal window shows up,
 copy paste any of the previous command `/bin/bash -c "..."` in the terminal 
 then hit ``↵ enter`` to run the [bash][bash] script.
 
-<div align="center"><img src="img/cmd.png" width=500/></div>
+<div align="center"><img src="img/cmd.png" width=700/></div>
 
 
 ## Customize the output
