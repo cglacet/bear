@@ -1,6 +1,6 @@
-nc="\\\\033[0m"
-red="\\\\033[0;31m"
-blue="\\\\033[0;34m"
+nc=$(tput sgr0)
+red=$(tput setaf 1)
+blue=$(tput setaf 4)
 
 
 if ! command -v git 2>&1 >/dev/null; then 
