@@ -14,7 +14,7 @@ Quickly add a list of back-references to every notes (links to note that cite th
 **In a terminal** — :warning: Make sure to backup your notes before trying this
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
 
 > **How to run a bash command on OSX**: 
@@ -43,7 +43,7 @@ For example if we need to modify the introduction text we just need to run:
 
 ```bash
 BEAR_BACKREFERENCES_INTRO_TEXT="Liens entrants vers cette note :" \
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
 
 Which will render the following markdown: 
@@ -101,7 +101,7 @@ Running the following script will add all back references found in your notes.
 The script: 
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/insert_backreferences.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
 
 Here is what this script does:
