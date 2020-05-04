@@ -138,8 +138,6 @@ BEAR_BACKREFERENCES_SECTION="" \
  
 ### Markdown options
 
-You can modify the following environment variable:
-
 | environment variable                   | target                            | default value                       |
 |----------------------------------------|-----------------------------------|-------------------------------------|
 | `BEAR_BACKREFERENCES_SEPARATOR`        | separator                         | `---`                               |
