@@ -1,6 +1,7 @@
 # Automatically add back-references to all your Bear notes
 
-:warning: Make sure to backup your notes before trying this, or just try it in [test mode](#use-in-test-mode).
+* :warning: Make sure to backup your notes before trying this, or just try it in [test mode](#use-in-test-mode).
+* :date: This will change modification dates of the modified notes (I would like to solve this and asked for help [here][help needed]).
 
 **Back references to notes**
 ```bash
@@ -155,3 +156,4 @@ Also, any comment is welcome, feel free to [open a new issue][new issue] (even f
 [sources]: https://github.com/cglacet/bear
 [py script]: https://github.com/cglacet/bear/blob/master/insert_backreferences.py
 [new issue]: https://github.com/cglacet/bear/issues/new/choose
+[help needed]: https://www.reddit.com/r/bearapp/comments/gepb5x/addtext_api_without_altering_modification_date/?utm_source=share&utm_medium=web2x
