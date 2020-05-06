@@ -8,7 +8,6 @@ url="https://raw.githubusercontent.com/cglacet/install-scripts/master/osx/git-cl
 url="https://raw.githubusercontent.com/cglacet/install-scripts/master/osx/install-python.sh?$(date +%s)"
 /bin/bash -c "$(curl -fsSL url)"
 
-cd $install_dir
 echo "Adding back-reference links to your ${red}Bear${nc} notes"
 echo "----------------------------------------------"
-python insert_backreferences.py
+python $install_dir/insert_backreferences.py
