@@ -1,10 +1,9 @@
 import subprocess
 import sqlite3
 import re
-from textwrap import indent
 from urllib.parse import urlparse, parse_qs, quote
 from links import HeaderLink
-from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST, INSERT_OPTIONS, ROOT_SECTION_TEXT
+from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST, INSERT_OPTIONS, REPLACE_OPTIONS, ROOT_SECTION_TEXT
 
 
 def notes():
@@ -15,11 +14,33 @@ def notes():
         return result.fetchall()
 
 
+def test_modify_note():
+    with sqlite3.connect(BEAR_DB) as conn:
+        #r = conn.execute("UPDATE ZSFNOTE SET ZTEXT='# Note B\nAnother test' WHERE `ZUNIQUEIDENTIFIER`='462D4FA7-C2AA-4150-AE2A-4C5D8BB74713-60300-00009B8DECC337BB'")
+        #conn.commit()
+        conn.row_factory = sqlite3.Row
+        result = conn.execute("SELECT * FROM `ZSFNOTE` WHERE `ZUNIQUEIDENTIFIER`='462D4FA7-C2AA-4150-AE2A-4C5D8BB74713-60300-00009B8DECC337BB'")
+        print(f"Database fields: {database_fields(result)}")
+        return result.fetchall()
+
 def append_text_to_note(note, text):
     x_call_text = f"{WRITE_API_URL}?{INSERT_OPTIONS}&text={encode(text)}&id={note.uid}&new_line=no"
     if TEST:
         print("")
         print("The following would be added to your note: \n")
+        print('—'*40, end="\n\n")
+        print(text)
+        print("")
+        print('—'*40)
+    else:
+        return call(x_call_text)
+
+
+def replace_note_text(note, text):
+    x_call_text = f"{WRITE_API_URL}?{REPLACE_OPTIONS}&text={encode(text)}&id={note.uid}"
+    if TEST:
+        print("")
+        print("The script would have replaced existing note with: \n")
         print('—'*40, end="\n\n")
         print(text)
         print("")
@@ -78,3 +99,8 @@ def database_fields(result):
 
 def encode(text):
     return quote(text)
+
+
+if __name__ == "__main__":
+    for x in test_modify_note():
+        print(x['ZMODIFICATIONDATE'])

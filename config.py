@@ -12,3 +12,11 @@ INSERT_OPTIONS_DICT = {
     'open_note': 'no',
     'show_window': 'no',
 }
+
+# Options that will be passed to the text replacement API:
+#   https://bear.app/faq/X-callback-url%20Scheme%20documentation/#add-text
+REPLACE_OPTIONS_DICT = {
+    'mode': 'replace_all',
+    'open_note': 'no',
+    'show_window': 'no',
+}

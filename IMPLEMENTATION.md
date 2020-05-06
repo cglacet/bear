@@ -1,18 +1,19 @@
 # Remarks on the implementation 
 
-There are several insteresting things in this problem, the main one for now I think is the following.
+There is [one guideline][bear guideline] we tried to follow is: use Bear's database in read-only mode.
+There are several interesting things in this problem, the main one for now I think is the following.
 
 ## Ignore back references when creating new back references
 
-Adding back reference on existing links requires to be able to identify existing links. 
+Adding back reference on existing links requires to be able to identify existing links.
 In other words, this implementation requires to have a mechanism to make a distinction between:
 
 * *Normal links* existing links to notes you added yourself.
-* *Back reference links* automatically added by the script. 
+* *Back reference links* automatically added by the script.
 
-If a back reference link is mistaken as a normal link, then it will be referenced as a back 
-reference (which as you can tell is recursive). If we let things go without caution, we could 
-create something like this: 
+If a back reference link is mistaken as a normal link, then it will be referenced as a back
+reference (which as you can tell is recursive). If we let things go without caution, we could
+create something like this:
 
 **Initial state:**
 
@@ -26,8 +27,8 @@ create something like this:
 
 <div align="center"><img src="img/problem_1_step_3.png" width=800/></div>
 
-After the 2nd run `Note A` have a back reference to `Note B` even though 
-`Note B` doesn't have any reference to `Note A`. 
+After the 2nd run `Note A` have a back reference to `Note B` even though
+`Note B` doesn't have any reference to `Note A`.
 That's not our objective here, at least it wasn't mine.
 
 There are many hacks to solve this, but lets add some constraints. We need back references links 
@@ -110,12 +111,14 @@ for each section citing the current note, like so:
 
 <div align="center"><img src="img/multi_refs.png" width=800/></div>
 
-This is done simply using the section's titles, so if you were to change the title of the refered section, the link wouldn't work anymore (it would only get you to the referenced note, but not to the desired section). This (in my opinion) is also a problem Bear team should solve (maybe by adding unique identifiers to sections, which, for older notes, can be inserted as soon as any new link toward this section is created). But in our case this lead to a second problem. 
+This is done simply using the section's titles, so if you were to change the title of the referred section, the link wouldn't work anymore (it would only get you to the referenced note, but not to the desired section). This (in my opinion) is also a problem Bear team should solve (maybe by adding unique identifiers to sections, which, for older notes, can be inserted as soon as any new link toward this section is created). But in our case this lead to a second problem. 
 
-Imagine if `Note A` `Section 2` is renammed to `Section 3` and we run this repository script again, if we don't proceed with caution, here is what will happen to `Note B`: 
+Imagine if `Note A` `Section 2` is renamed to `Section 3` and we run this repository script again, if we don't proceed with caution, here is what will happen to `Note B`: 
 
 <div align="center"><img src="img/multi_refs_2nd_run.png" width=350/></div>
 
 Since we only used section titles as references, from our program's point of view, there is a new section. This is most likely impossible to notice. On the other hand there is a simple solution to this, we can remove links that refer to a non-existing section. Of course we only want to remove automatically create links (ie., back-references only), which we can do once again using the previous function `is_a_backreference(link)`. This will be published to the repository very soon, for now this bug still exists.
 
+
 [open-note]: https://bear.app/faq/X-callback-url%20Scheme%20documentation/#open-note
+[bear guideline]: https://bear.app/faq/Where%20are%20Bear's%20notes%20located/#please-note-if-you-plan-to-work-with-bears-database
