@@ -1,6 +1,6 @@
 
 install_dir=~/.github/bear/back-references
-git_repo=git@github.com:cglacet/uuid-scheme.git
+git_repo=git@github.com:cglacet/bear.git
 
 url="https://raw.githubusercontent.com/cglacet/install-scripts/master/osx/git-clone.sh?$(date +%s)"
 /bin/bash -c "$(curl -fsSL $url)" bash $install_dir $git_repo
