@@ -149,6 +149,11 @@ Since non developers may use this I wanted to have a single command to copy past
 ```bash
 git clone git@github.com:cglacet/bear.git
 cd bear
+```
+
+Then run the script using the same environment variables: 
+
+```bash
 BEAR_TEST=true python insert_backreferences.py
 ```
 
