@@ -148,6 +148,19 @@ If you are a developer, maybe you can read the [implementation notes](IMPLEMENTA
 Also, any comment is welcome, feel free to [open a new issue][new issue] (even for discussions).
 
 
+## Manual installation 
+
+Since non developpers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. 
+
+```bash
+git clone git@github.com:cglacet/bear.git
+cd bear
+BEAR_TEST=true python insert_backreferences.py
+```
+
+Instead of using environement varaibles everytime, you can also directly edit the values you want to change in `constants.py` and `config.py`.
+
+
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
 [Homebrew]: https://brew.sh/
