@@ -2,7 +2,7 @@
 
 * :warning: Make sure to backup your notes before trying this, or just try it in [test mode](#use-in-test-mode).
 * :date: This will change modification dates of the modified notes (I would like to solve this and asked for help [here][help needed]).
-* Install scripts are mainly disgned for non-developpers, if you are confortable with git/python it may be more confortable for you to proceed with the [manual installation](#Manual-installation).
+* :computer: Install scripts are mainly disgned for non-developpers, if you are confortable with git/python it may be more confortable for you to proceed with the [manual installation](#Manual-installation).
 
 **Back references to notes**
 ```bash
