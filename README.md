@@ -142,13 +142,6 @@ BEAR_BACKREFERENCES_SECTION="" \
 | `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
 | `BEAR_TEST`                            | output text in terminal           | false                               |
 
-
-## If you have more questions
-
-If you are a developer, maybe you can read the [implementation notes](IMPLEMENTATION.md).
-Also, any comment is welcome, feel free to [open a new issue][new issue] (even for discussions).
-
-
 ## Manual installation 
 
 Since non developpers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. 
@@ -160,6 +153,12 @@ BEAR_TEST=true python insert_backreferences.py
 ```
 
 Instead of using environement varaibles everytime, you can also directly edit the values you want to change in `constants.py` and `config.py`.
+
+
+## If you have more questions
+
+If you are a developer, maybe you can read the [implementation notes](IMPLEMENTATION.md).
+Also, any comment is welcome, feel free to [open a new issue][new issue] (even for discussions).
 
 
 [bash]: https://www.wikiwand.com/en/Bash_(Unix_shell)
