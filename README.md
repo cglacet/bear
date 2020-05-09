@@ -1,7 +1,7 @@
 # Automatically add back-references to all your Bear notes
 
 * :warning: Make sure to backup your notes before trying this, or just try it in [test mode](#use-in-test-mode).
-* :date: This will change modification dates of the modified notes (I would like to solve this and asked for help [here][help needed]).
+* :date: Running this script will change modification dates of all modified notes (I would like to prevent this, but for now I can't and asked for help [here][help needed]).
 * :computer: Install scripts are mainly disgned for non-developer users, if you are confortable with git/python it may be more confortable for you to proceed with the [manual installation](#Manual-installation).
 
 **Back references to notes**
