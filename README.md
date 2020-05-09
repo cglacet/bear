@@ -2,6 +2,7 @@
 
 * :warning: Make sure to backup your notes before trying this, or just try it in [test mode](#use-in-test-mode).
 * :date: This will change modification dates of the modified notes (I would like to solve this and asked for help [here][help needed]).
+* :computer: Install scripts are mainly disgned for non-developers, if you are confortable with git/python it may be more confortable for you to proceed with the [manual installation](#Manual-installation).
 
 **Back references to notes**
 ```bash
@@ -140,6 +141,23 @@ BEAR_BACKREFERENCES_SECTION="" \
 | `BEAR_ROOT_SECTION_TEXT`               | root section representation       | `/`                                 |
 | `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
 | `BEAR_TEST`                            | output text in terminal           | false                               |
+
+## Manual installation 
+
+Since non developers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. 
+
+```bash
+git clone git@github.com:cglacet/bear.git
+cd bear
+```
+
+Then run the script using the same environment variables: 
+
+```bash
+BEAR_TEST=true python insert_backreferences.py
+```
+
+Instead of using environement varaibles everytime, you can also directly edit the values you want to change in `constants.py` and `config.py`.
 
 
 ## If you have more questions
