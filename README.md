@@ -59,15 +59,16 @@ The script:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
 ```
 
-Here is what this script does:
+Here is what this script does, it:
 
-* install all shell dependencies ([Git][Git] and [Python][Python]) using [Homebrew][Homebrew], 
-* download the most recent sources from [here][sources],
-* run the [python script][py script] that actually make all the work, which is: 
-  * finding all outgoing links from existing notes
+* installs all shell dependencies ([Git][Git]/[Python][Python]/[pyenv][pyenv]) using [Homebrew][Homebrew], 
+* downloads the most recent sources from [here][sources] in the repository `~/.github/bear/back-references`,
+* sets this directory's default python interpreter to a recent version of python 3.7.
+* runs the [python script][py script] that actually make all the work, which is: 
+  * finding all outgoing links from existing Bear notes
   * adding back-references to existing notes.
   
-Theses steps are also described in the [manual installation](#Manual-installation) section and more details on how the python script operate on Bear notes can be found [here](IMPLEMENTATION.md).
+Theses steps are also described in the [manual installation](#Manual-installation) section and more details on how the python script operate on Bear notes can be found [here](IMPLEMENTATION.md). The installation script can be found [here](install.sh).
 
 
 ## Use in test mode
@@ -170,7 +171,7 @@ If you version is older than 3.6 you will need to update it, and as this drawing
 
 <div align="center"><img src="https://imgs.xkcd.com/comics/python_environment_2x.png" width=492/></div>
 
-Therefore I would strongly advise using the amzing `pyenv` to deal with this mess for you: 
+Therefore I would strongly advise using the amzing [pyenv][pyenv] to deal with this mess for you: 
 
 
 ```python
@@ -198,6 +199,7 @@ Also, any comment is welcome, feel free to [open a new issue][new issue] (even f
 [reddit post]: https://www.reddit.com/r/bearapp/comments/gc2ywl/reverselinks_support/
 [Homebrew]: https://brew.sh/
 [Python]: https://www.python.org/
+[pyenv]: https://github.com/pyenv/pyenv#simple-python-version-management-pyenv
 [Git]: https://git-scm.com/
 [sources]: https://github.com/cglacet/bear
 [py script]: https://github.com/cglacet/bear/blob/master/insert_backreferences.py
