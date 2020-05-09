@@ -20,6 +20,16 @@ class BearNote:
                 yield title, link
 
     @property
+    def outgoing_wiki_links(self):
+        yield from bear_api.wiki_link(self.text)
+
+    @property
+    def sections_outgoing_wiki_links(self):
+        for title, content in self.sections:
+            for link in bear_api.wiki_link(content):
+                yield title, link
+
+    @property
     def sections(self):
         section_content = ""
         previous_section_title = ""

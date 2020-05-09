@@ -68,6 +68,9 @@ def find_all_links(notes):
             if not is_a_backreference(out_link):
                 backref = Link(href_id=note.uid, title=note.title, open_note_title=BACKREFMARKER)
                 backreferences[out_link.href_id].add(backref)
+        for wiki_link in note.outgoing_wiki_links:
+            backref = HeaderLink(href_id=note.uid, title=note.title, open_note_title=BACKREFMARKER)
+            backreferences[wiki_link.href_id].add(backref)
     return backreferences, out_links
 
 
@@ -80,6 +83,9 @@ def find_all_links_by_section(notes):
             if not is_a_backreference(out_link):
                 backref = HeaderLink(href_id=note.uid, title=note.title, header=header, open_note_title=BACKREFMARKER)
                 backreferences[out_link.href_id].add(backref)
+        for header, wiki_link in note.sections_outgoing_wiki_links:
+            backref = HeaderLink(href_id=note.uid, title=note.title, header=header, open_note_title=BACKREFMARKER)
+            backreferences[wiki_link.href_id].add(backref)
     return backreferences, out_links
 
 
@@ -151,3 +157,8 @@ def text_lines(note, backref_links=None):
 
 if __name__ == "__main__":
     main_test()
+    
+    # bear_notes = [BearNote(note) for note in bear_api.notes()]
+    # notes = {note.uid: note for note in bear_notes}
+    # backreferences, out_links = find_all_links(notes)
+    # print(backreferences['08BA020E-20FC-4BE7-85F2-26ED16C7EFA6-18162-00004B929D4B7736'])
