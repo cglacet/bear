@@ -144,14 +144,34 @@ BEAR_BACKREFERENCES_SECTION="" \
 
 ## Manual installation 
 
-Since non developers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. 
+Since non developers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. First things first, to run the code the simplest way is to download the whole repository:
 
 ```bash
 git clone git@github.com:cglacet/bear.git
 cd bear
 ```
 
-Then run the script using the same environment variables: 
+In order to run the script you need python ≥ 3.6: 
+
+```bash 
+python --version
+```
+
+If you version is older than 3.6, and as explained in this drawing: 
+
+<div align="center"><img src="https://imgs.xkcd.com/comics/python_environment_2x.png" width=492/></div>
+
+
+I would strongly advise using the amzing `pyenv` which will deal with this mess for you: 
+
+
+```python
+brew install pyenv
+pyenv install 3.7.7   # Install a more recent version of python (you can pick any version ≥ 3.6)
+pyenv local 3.7.7     # Use that interpreter as the default one in the current directory (and only here)
+```
+
+You can now run the script using the environment variables as documented before: 
 
 ```bash
 BEAR_TEST=true python insert_backreferences.py
