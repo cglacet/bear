@@ -157,12 +157,12 @@ In order to run the script you need python ≥ 3.6:
 python --version
 ```
 
-If you version is older than 3.6, and as explained in this drawing: 
+If you version is older than 3.6 you will need to update it, and as explained in this drawing, dealing with python versions is not really easy:  
 
 <div align="center"><img src="https://imgs.xkcd.com/comics/python_environment_2x.png" width=492/></div>
 
 
-I would strongly advise using the amzing `pyenv` which will deal with this mess for you: 
+Therefore I would strongly advise using the amzing `pyenv` to deal with this mess for you: 
 
 
 ```python
