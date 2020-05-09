@@ -68,8 +68,7 @@ Here is what this script does, it:
   * finding all outgoing links from existing Bear notes
   * adding back-references to existing notes.
   
-Theses steps are also described in the [manual installation](#Manual-installation) section and more details on how the python script operate on Bear notes can be found [here](IMPLEMENTATION.md). The installation script can be found [here](install.sh).
-
+Theses steps are also described in the [manual installation](#Manual-installation) section and more details on how the python script operate on Bear notes can be found [here](IMPLEMENTATION.md). The installation script can be found [here](install.sh) and uses more general scripts from [here][install-scripts].
 
 ## Use in test mode
 
@@ -203,5 +202,6 @@ Also, any comment is welcome, feel free to [open a new issue][new issue] (even f
 [Git]: https://git-scm.com/
 [sources]: https://github.com/cglacet/bear
 [py script]: https://github.com/cglacet/bear/blob/master/insert_backreferences.py
+[install-scripts]: https://github.com/cglacet/install-scripts/tree/master/osx
 [new issue]: https://github.com/cglacet/bear/issues/new/choose
 [help needed]: https://www.reddit.com/r/bearapp/comments/gepb5x/addtext_api_without_altering_modification_date/?utm_source=share&utm_medium=web2x
