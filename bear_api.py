@@ -2,7 +2,7 @@ import subprocess
 import sqlite3
 import re
 from urllib.parse import urlparse, parse_qs, quote
-from links import HeaderLink, Link, Wikilink
+from links import HeaderLink, Link
 from constants import BEAR_DB, WRITE_API_URL, OPEN_NOTE_API_URL, TEST
 from constants import REPLACE_OPTIONS, ROOT_SECTION_TEXT, INSERT_OPTIONS
 
@@ -14,7 +14,7 @@ def notes(title=None):
         if title:
             sql_request = f"{sql_request} AND ZTITLE = '{title}' ORDER BY ZMODIFICATIONDATE DESC"
         result = conn.execute(sql_request)
-        print(f"Database fields: {database_fields(result)}")
+        # print(f"Database fields: {database_fields(result)}")
         return result.fetchall()
 
 
