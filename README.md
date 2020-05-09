@@ -146,11 +146,18 @@ BEAR_BACKREFERENCES_SECTION="" \
 
 ## Manual installation 
 
-Since non developers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. First things first, to run the code the simplest way is to download the whole repository:
+Since non developers may use this I wanted to have a single command to copy paste and make things as simple as possible for everyone. This is why this section doesn't come first. Get the latest version of this repository:
 
 ```bash
 git clone git@github.com:cglacet/bear.git
 cd bear
+```
+
+If you already cloned the repository you can just pull the latest version: 
+
+```bash
+cd bear 
+git pull origin master
 ```
 
 In order to run the script you need python ≥ 3.6: 
@@ -159,10 +166,9 @@ In order to run the script you need python ≥ 3.6:
 python --version
 ```
 
-If you version is older than 3.6 you will need to update it, and as explained in this drawing, dealing with python versions is not really easy:  
+If you version is older than 3.6 you will need to update it, and as this drawing shows, dealing with python versions is not really *easy*:  
 
 <div align="center"><img src="https://imgs.xkcd.com/comics/python_environment_2x.png" width=492/></div>
-
 
 Therefore I would strongly advise using the amzing `pyenv` to deal with this mess for you: 
 
