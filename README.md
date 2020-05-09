@@ -132,6 +132,29 @@ BEAR_BACKREFERENCES_SECTION="" \
 * [Title of another note](link-to-another-node)
 ```
 
+## Wiki-links style references 
+
+Wikilinks are referencing notes' titles instead of notes unique identifiers, this may lead to dead-link issues and also strange behaviour when several notes share the same title. This is a "problem" inherent to this solution so it appears in Bear and it will also appear in the back-references this script adds. 
+
+Here is an illustration of what may happen with wiki-links, first we initialize 3 notes, with two notes sharing the same title and a third one linking to this shared title `Note C`. In this case, Bear consider that `[[Note C]]` is a link to the most recently **edited** note, which in this case is middle note: 
+
+<div align="center">
+<img src="https://github.com/cglacet/bear/blob/f5aaa07a7f3a3e4fa5ac8e6d3cba8cae36bc9a1b/img/wikilinks/step2.png" width=700/>
+</div>
+
+Then we run the script. I made the same choice as bear, for consistency. Therefore the back-references is added to the middle note only: 
+<div align="center">
+<img src="https://github.com/cglacet/bear/blob/f5aaa07a7f3a3e4fa5ac8e6d3cba8cae36bc9a1b/img/wikilinks/step2_after_script.png" width=700/>
+</div>
+
+So far so good, but what if we edit the right handside note and run the script again: 
+<div align="center">
+<img src="https://github.com/cglacet/bear/blob/f5aaa07a7f3a3e4fa5ac8e6d3cba8cae36bc9a1b/img/wikilinks/step3.png" width=700/>
+</div>
+
+It's probably possible to detect dead links and I think this is a feature that would make sense in general (not only for wiki style links).
+
+
 ## Complete documentation on environment variable options 
 
 
