@@ -66,6 +66,8 @@ Here is what this script does:
 * run the [python script][py script] that actually make all the work, which is: 
   * finding all outgoing links from existing notes
   * adding back-references to existing notes.
+  
+Theses steps are also described in the [manual installation](#Manual-installation) section and more details on how the python script operate on Bear notes can be found [here](IMPLEMENTATION.md).
 
 
 ## Use in test mode
