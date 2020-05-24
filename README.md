@@ -132,6 +132,36 @@ BEAR_BACKREFERENCES_SECTION="" \
 * [Title of another note](link-to-another-node)
 ```
 
+## Note/tag filtering
+
+If you need to only apply this script on a subset of notes you can use both notes/tags whitelists. Notes whitelists using the environment variable 
+`BEAR_NOTES_WHITELIST` as a coma-separated list of notes UUIDs (eg. `BEAR_NOTES_WHITELIST=XXX-XXX,YYY-YYY`). 
+
+Whitelisting note using tags can be done with `BEAR_TAGS_WHITELIST` as a list of hashtag-separated tags. For example, using `BEAR_TAGS_WHITELIST=test#another test` will 
+only add back references to notes containing at least one of `#test` or `#another test#` tags. This can also be used for subtags if `BEAR_INCLUDE_SUBTAGS` is set to `true`,
+for example using this with `BEAR_TAGS_WHITELIST=test` would include back references in all notes with tags of the form `test/XXX` (`XXX` being
+any tag, including complex tags with `/`-paths). 
+
+Note that with this options the subtags are defined as "tags separated by `/`", which means that
+`tes` wouldn't match any tag of the form `test...` but `tes` would match tags of the form `tes/t...`. 
+
+If both notes and tags whitelist are included the union of the two are taken.
+
+By default, tags case are ignored, eg. `Test` would match `tesT`.
+
+Complete example:
+
+```bash
+BEAR_NOTES_WHITELIST=A3355907-BCCF-4238-92B3-C0091F982429-63326-0000C7025C09C2F9,4575DAC3-A2CC-40EB-B1E4-37458F3C4F6E-63326-0000D88C253AFD27 \
+BEAR_INCLUDE_SUBTAGS=true \
+BEAR_TAGS_WHITELIST="tag1#tag two" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/cglacet/bear/master/install.sh)"
+```
+
+This would include the note with UUID equal to `A3355907-BCCF-4238-92B3-C0091F982429-63326-0000C7025C09C2F9,4575DAC3-A2CC-40EB-B1E4-37458F3C4F6E-63326-0000D88C253AFD27`
+and all notes having one of `#tag1` or `#tag two#`.
+
+
 ## Wiki-links style references 
 
 Wikilinks are referencing notes' titles instead of notes unique identifiers, this may lead to dead-link issues and also strange behaviour when several notes share the same title. This is a "problem" inherent to this solution so it appears in Bear and it will also appear in the back-references this script adds. 
@@ -158,14 +188,17 @@ It's probably possible to detect dead links and I think this is a feature that w
 ## Complete documentation on environment variable options 
 
 
-| environment variable                   | target/effect                     | default value                       |
-|----------------------------------------|-----------------------------------|-------------------------------------|
-| `BEAR_BACKREFERENCES_SEPARATOR`        | separator                         | `---`                               |
-| `BEAR_BACKREFERENCES_INTRO_TEXT`       | introduction text                 | `This note is referenced in:`       |
-| `BEAR_BACKREFERENCE_PREFIX`            | prefix of each link               | `\n* `                              |
-| `BEAR_ROOT_SECTION_TEXT`               | root section representation       | `/`                                 |
-| `BEAR_BR_SECTIONS`                     | link back references to sections  | true                                |
-| `BEAR_TEST`                            | output text in terminal           | false                               |
+| environment variable            | target/effect                   | default value                  | type                      |
+|---------------------------------|---------------------------------|--------------------------------|---------------------------|
+| `BEAR_NOTES_WHITELIST`          | coma additions to given notes   | `None` (all notes are included)| `,`-separated list of UUID|
+| `BEAR_TAGS_WHITELIST`           | limit additions to given tags   | `None` (all tags are included) | `#`-separated list of tags|
+| `BEAR_INCLUDE_SUBTAGS`          | include subtags in tag whitelist| false                          | true/false                |
+| `BEAR_BACKREFERENCES_SEPARATOR` | separator                       | `---`                          | string                    |
+| `BEAR_BACKREFERENCES_INTRO_TEXT`| introduction text               | `This note is referenced in:`  | string                    |
+| `BEAR_BACKREFERENCE_PREFIX`     | prefix of each link             | `\n* `                         | string                    |
+| `BEAR_ROOT_SECTION_TEXT`        | root section representation     | `/`                            | string                    |
+| `BEAR_BR_SECTIONS`              | link back references to sections| true                           | true/false                |
+| `BEAR_TEST`                     | output text in terminal         | false                          | true/false                |
 
 ## Manual installation 
 

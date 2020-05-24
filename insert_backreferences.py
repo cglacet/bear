@@ -2,11 +2,11 @@
 This is a bit hacky as bear x-callback api ignores the title argument when the ID argument
 is passed. THis allows to add some meta-data in the title argument of open-note:
 """
-
 import bear_api
 from collections import defaultdict
 from bear_note import BearNote
-from constants import USE_HEADER_LINKS, BACKREFMARKER, BACKREFERENCES_INTRO_TEXT, BACKREFERENCES_SECTION, BACKREFERENCE_PREFIX
+from constants import USE_HEADER_LINKS, BACKREFMARKER, BACKREFERENCES_INTRO_TEXT, BACKREFERENCES_SECTION
+from constants import BACKREFERENCE_PREFIX, NOTES_WHITELIST, TAGS_WHITELIST, IGNORE_TAGS_CASE, INCLUDE_SUBTAGS
 from links import Link, HeaderLink
 from ordered_set import OrderedSet
 
@@ -28,15 +28,30 @@ def main():
     print(f"Inserted {nb_links_inserted} new links to your notes.")
 
 
+# And this is the new one
 def main_test():
-    bear_notes = [BearNote(note) for note in bear_api.notes()]
+    configuration = dict(lowercase_tags=IGNORE_TAGS_CASE, include_subtags=INCLUDE_SUBTAGS)
+    bear_notes = [BearNote(note, **configuration) for note in bear_api.notes()]
     notes = {note.uid: note for note in bear_notes}
     backreferences, _ = find_all_links(notes)
-    for note_id, note in notes.items():
+    for note_id, note in filtered_notes(notes).items():
         note_back_refs = backreferences[note_id]
         if note_back_refs:
             new_note_content = ''.join(text_lines(note, backref_links=note_back_refs))
             bear_api.replace_note_text(note, new_note_content)
+
+
+def filtered_notes(notes):
+
+    def should_keep_note(uuid, note):
+        is_any_rule_defined = NOTES_WHITELIST or TAGS_WHITELIST
+        keep_note_rules = [
+            uuid in NOTES_WHITELIST,
+            not TAGS_WHITELIST.isdisjoint(note.tags),
+        ]
+        return not is_any_rule_defined or any(keep_note_rules)
+
+    return {uuid: note for uuid, note in notes.items() if should_keep_note(uuid, note)}
 
 
 def add_backreferences_to_note(note, backreferences, out_links):

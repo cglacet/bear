@@ -3,8 +3,11 @@ import bear_api
 
 
 class BearNote:
-    def __init__(self, sql_row):
+    def __init__(self, sql_row, lowercase_tags=False, include_subtags=False):
         self.content = sql_row
+        self._tags = set()
+        self.lowercase_tags = lowercase_tags
+        self.include_subtags = include_subtags
 
     def append_text(self, text):
         return bear_api.append_text_to_note(self, text)
@@ -56,14 +59,23 @@ class BearNote:
     def text(self):
         return self.content['ZTEXT'].rstrip()
 
-    # Unused for now
     @property
     def tags(self):
+        if not self._tags:
+            self._tags = frozenset(self.find_tags())
+        return self._tags
+
+    def find_tags(self):
         pattern1 = r'(?<!\S)\#([.\w\/\-]+)[ \n]?(?!([\/ \w]+\w[#]))'
         pattern2 = r'(?<![\S])\#([^ \d][.\w\/ ]+?)\#([ \n]|$)'
         for pattern in (pattern1, pattern2):
             for matches in re.findall(pattern, self.text):
-                yield matches[0]
+                tag = matches[0]
+                if self.lowercase_tags:
+                    tag = tag.lower()
+                yield tag
+                if self.include_subtags:
+                    yield from subtags(tag)
 
 
 def match_section_title(text_line):
@@ -72,3 +84,17 @@ def match_section_title(text_line):
         return match[1]
     except (TypeError, IndexError):
         return None
+
+
+def subtags(tag):
+    """Iterate over subtags (longer subtags come first)::
+        >>> list(subtags("V/W/X/Y/Z"))
+        ['V/W/X/Y', 'V/W/X', 'V/W', 'V']
+    """
+    subtag = tag
+    try:
+        while True:
+            subtag, _ = subtag.rsplit('/', maxsplit=1)
+            yield subtag
+    except ValueError:
+        pass
